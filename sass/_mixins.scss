@@ -1,0 +1,37 @@
+/************* Mixins ***********/
+@mixin absoluePs{ 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+@mixin pbtn{
+   padding: 8px 20px;
+   background-color: $bgcolor;
+   color: #fff;
+   border: 2px solid transparent;
+   text-transform: capitalize;
+   transition: 0.3s;
+   font-family: $roboto;
+   border-radius: 3px;
+
+   &:hover{
+    border : 2px solid #000;
+    background-color: transparent;
+    color: #ffff;
+    transition: 0.3s;
+   }
+}
+
+
+@mixin widthHeight{
+    width: 100%;
+    height: auto;
+}
+
+@mixin margin0p0{
+    margin: 0;
+    padding: 0;
+}

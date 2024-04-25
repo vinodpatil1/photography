@@ -1,0 +1,570 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+// /*************  Mixins file ***********/
+@import "mixins";
+
+
+// /*************  Variables file ***********/
+@import "variables";
+
+body,html{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #484848;
+    line-height: 24px;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
+
+*{box-sizing: border-box;}
+
+p{
+    font-size: $fontSize16;
+    color: $primColor;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    color: $bgcolor;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+/**************** Hero section*******************/
+.hero{
+    @include widthHeight;
+    position: relative;
+
+    .sticky {
+        position: fixed!important;
+        top: 0 !important;
+        width: 100% !important;
+        height: auto;
+        background-color: $footerbg!important;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px!important;
+      }
+
+    .navbar{
+        @include widthHeight;
+        @include absoluePs;
+        background: transparent;
+        transition: all 0.4s ease!important;
+        
+        .navbar-brand{font-family: $robotoSlab;}
+
+        .nav-item{margin: 0 10px;}
+
+        .nav-link{
+            color: #fff;
+            font-size: $fontSize14;
+            font-family: $roboto;
+            font-weight: 300;
+            text-transform: uppercase;
+
+            &:hover{border-bottom: 1px solid #fff;}
+
+            &.active{border-bottom: 1px solid #fff;}
+
+        }
+    }
+
+    .carousel-caption {
+        position: absolute;
+        left: 0;
+        box-sizing: border-box;
+        bottom: 71px;
+        color: #fff;
+        text-align: left;
+        min-height: 250px;
+        width: 80%;
+        right: 0;
+        height: 327px;
+        margin: 0 auto;
+        border-bottom: 1px solid #fff;
+        
+    
+        .caption_container{
+           .heading-caption{
+                width: 40%;
+                height: auto;
+                h5{font-size: 45px;}
+            }
+           .caption-footer{
+              @include widthHeight;
+         
+              h6{
+                font-size: $fontSize18;
+                font-family: $roboto
+              }
+                .customBtn{
+                    @include pbtn;
+                }
+            }        
+        }
+   }
+
+    .carousel-control-next, .carousel-control-prev {
+        position: absolute;
+        top: auto;
+        bottom: 20px;
+     }
+    .carousel-control-next {
+        right: 43px;
+    }
+    .carousel-control-prev {
+        left: 43px;
+    }
+}
+
+/******************** gallery-section *************************/
+.gallery-section{
+    .wrap {
+        display: -ms-flexbox; 
+        display: flex;
+        -ms-flex-wrap: wrap; 
+        flex-wrap: wrap;
+       
+        .columns {
+            -ms-flex: 33%; 
+            flex: 33%;
+            max-width: 34%;
+            padding: 0 10px;
+    
+             img {
+                margin-top: 20px;
+                vertical-align: middle;
+                @include widthHeight;
+              }
+          }
+      }
+}
+
+
+/******************** testimonials-section *************************/
+.testimonials{
+   
+    h3{
+        font-size: $fontSize20;
+        font-weight: 500;
+        font-family: $roboto;
+        color: $primColor;
+    }
+
+    p{
+        color: $primColor;
+        @include margin0p0;
+    }
+
+    h2{
+        font-size:$fontSize26;
+        font-family: $robotoSlab;
+        color: $primColor;
+    }
+
+    .carousel-control-next, .carousel-control-prev {
+        bottom: 0;
+        top: auto;
+        width: 15%;
+        padding: 0;
+        color: #fff;
+    }
+    .carousel-control-prev {
+        right: 544px;
+        left: auto;
+    }
+    .carousel-control-next {
+        right: -70px;
+    }
+}
+
+/************************* coll_action ********************************/
+.coll_action{
+    @include widthHeight;
+    min-height: 500px;
+    background-image: url("../assets/images/call1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top;
+
+    h4{
+        font-family: $robotoSlab;
+        font-size: 45px;
+        line-height: 68px;
+
+    }
+}
+
+
+/********************** dream_location *************************/
+.dream_location{
+    @include widthHeight;
+
+    h5{ font-size: $fontSize26;}
+    p{@include margin0p0;}
+
+    .customBtn{
+        @include pbtn;
+        &:hover{
+            color: $primColor;
+        }
+    }
+}
+
+/********************** thumbnail_slider *************************/
+.thumbnail_slider{
+    @include widthHeight;
+
+   .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto;
+        gap: 10px;
+     }
+      .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        font-size: 30px;
+      }
+      .item2 {
+        grid-area: 1 / 2 / 1 / 6;
+      }
+      .carousel-control-next, .carousel-control-prev {
+        top: auto;
+        bottom: 0;
+        width: 8%;
+        color: #fff;
+        text-align: center;
+        background: 0 0;
+        transition: opacity .15s ease;
+    }
+
+    .carousel-control-prev {
+        left: 42%;
+    }
+    .carousel-control-next {
+        right: 42%;
+    }
+
+}
+
+/********************** feedback_section *************************/
+.feedback_section{
+   
+    h5{
+        font-size: $fontSize26;
+        font-style: italic;
+        font-weight: 200;
+    }
+    h6{
+        font-size: $fontSize15;
+        font-family: $roboto;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+}
+
+
+/********************** profile section *************************/
+.profile{
+    h6{
+        font-size: $fontSize16;
+        text-transform: uppercase;
+        font-family: $roboto;
+        font-weight: 500;
+    }
+
+    h1{font-size: 48px;}
+
+   p{@include margin0p0;}
+
+    .customBtn{
+        @include pbtn;
+        &:hover{
+            color: $primColor;
+        }
+    }
+}
+
+/************************  testimonials-two *********************************/
+.testimonials-two{
+
+    h2{
+        font-size: $fontSize20;
+        font-weight: 500;
+        font-family: $roboto;
+        text-transform: uppercase;
+        color: $primColor;
+    }
+
+    p{
+        color: $primColor;
+        @include margin0p0;
+    }
+
+    h3{
+        font-size:$fontSize26;
+        font-family: $robotoSlab;
+        color: $primColor;
+    }
+   .carousel-control-next, .carousel-control-prev {
+        top: 0;
+        bottom: auto;
+        width: 10%;
+   }
+    .carousel-control-prev {
+        right: 78px;
+        left: auto;
+    }
+}
+
+
+/************************  advatures-call-action *********************************/
+.advatures-call-action{
+    @include widthHeight;
+    min-height: 500px;
+    background-image: url("../assets/images/call2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top;
+ 
+    h2{
+        color: #fff;
+        font-family: $robotoSlab;
+        font-size: 45px;
+        line-height: 68px;
+ }
+    .customBtn{
+        @include pbtn;
+        &:hover{
+            color: #fff;
+        }
+    }
+    
+    p{
+        color: #fff;
+        @include margin0p0;
+    }
+}
+
+/************************  contact-form *********************************/
+.contact-form{
+  
+    h3{
+        font-size: $fontSize26;
+        font-family: $robotoSlab;
+        color: $primColor;
+    }
+
+    .customBtn{
+        @include pbtn;
+        &:hover{
+            color: $bgcolor;
+        }
+    }
+}
+
+/************************  footer-section *********************************/
+.footer-section{
+   background-color: $footerbg;
+  
+   h6{
+      font-size: $fontSize15;
+      font-weight: $robotoSlab;
+      color: #fff;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media  (min-width: 150px) and (max-width: 991px) { 
+    .hero{
+        width: 100%;
+        height: auto;
+        position: inherit;
+    
+        .navbar{
+            width: 100%;
+            height: auto;
+            background: $footerbg;
+            position: static;
+            padding: 0 25px;
+            
+            .navbar-brand{
+                text-transform: uppercase;
+                font-family: $robotoSlab;
+               
+            }
+    
+            .nav-item{
+                margin: 0px;
+            }
+    
+            .nav-link{
+             
+                &:hover{
+                    border-bottom: 1px solid #333; 
+                }
+                &.active{
+                    border-bottom: 1px solid #333;
+                }
+                
+                
+    
+            }
+        }
+        .carousel-control-next, .carousel-control-prev {
+            position: absolute;
+            top: 0;
+            bottom: 20px;
+        }
+    }
+
+
+ }
+
+
+ @media  (min-width: 150px) and (max-width: 768px) { 
+    .gallery-section{
+         .columns {
+            -ms-flex: 100%; 
+            flex: 100%;
+            max-width: 100%;
+            padding: 0 0px;
+          }
+        
+    }
+    .testimonials {
+
+        i{
+            font-size: $fontSize26!important;
+        }
+
+        h2{
+            margin-bottom: 10px;
+        }
+        .carousel-control-prev {
+            right: auto;
+            left: 0;
+        }
+        .carousel-control-next {
+            right: 0;
+        }        
+    }
+    
+ }
+
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 767px) and (max-width : 992px) {
+
+    .hero {
+        .carousel-caption {
+            left: 0;
+            bottom: 35px;
+            min-height: 120px;
+            height: 277px;
+           
+            .caption_container {
+                .heading-caption{
+                    width: 70%;
+                    height: auto;
+                    h5 {
+                        font-size: 32px;
+                    }
+                }
+            }
+        
+        }
+    }
+   
+ }
+
+/*******big screen**********/
+ @media (min-width: 1920px) and (max-width: 2560px)  {
+    .hero {
+        .carousel-caption {
+            position: absolute;
+            left: 0;
+            width: 69%;
+            height: 427px;
+        
+           
+        }
+        .carousel-control-prev {
+            left: 163px;
+        }
+        .carousel-control-next {
+            right: 163px;
+        }
+    }
+    
+}
+
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) {
+    .hero {
+        .carousel-caption {
+            min-height: 230px;
+            height: 207px;
+            width: 92%;
+  
+            .caption_container {
+                .heading-caption {
+                    width: 80%;
+                    
+                }
+            }
+            }
+            .carousel-control-prev {
+                left: 0px;
+            }
+            .carousel-control-next {
+                right: 0;
+            }
+    }
+}
+
+
+
+
